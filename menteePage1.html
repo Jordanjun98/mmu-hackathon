@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>MTM District</title>
+	<title>MTM District | Mentee</title>
 	<link rel="stylesheet" href="css/uikit.css" />
+</head>
 <body>
+<div class="uk-position-center uk-overlay uk-overlay-default">
 
-<div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+<div class="uk-card uk-card-default uk-card-body">
 <form>
     <fieldset class="uk-fieldset">
 
@@ -23,7 +25,10 @@
         <div class="uk-margin">
             <select class="uk-select">
                 <option>Course</option>
-                <option>Option 02</option>
+               
+                <option>Computer Science</option>
+                <option>Software Engineering</option>
+                <option>Network Security</option>
             </select>
         </div>
         
@@ -35,12 +40,19 @@
                 <option>3</option>
             </select>
         </div>
-        <button class="uk-button uk-button-primary"><a href="menteePage2.html">Go</a>Confirm</button>
+        <button class="uk-button uk-button-primary" onclick="confirm()">Confirm</button>
 
     </fieldset>
 </form>
 </div>
 
+
+
+<script>
+	function confirm() {
+		location.href = "mentorPage2.html";
+	}
+</script>
 
 </body>
 </html>

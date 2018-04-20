@@ -18,15 +18,22 @@
 <body>
   <div class="uk-position-center uk-overlay uk-overlay-default">
     <img src="img/tenor.gif" alt="" />
-  </div>
+
         <div class="uk-card uk-card-body">
             <div class="row">
               <div class="uk-position-center uk-overlay uk-overlay-default">
-                  <button id="mentorbutton" type="button" class="btn btn-info" onclick="relocate_home()">Mentor</button>
-                  <button id="menteebutton" type="button" class="btn btn-info" onclick="relocate_home()">Mentee</button>
+                  <button id="mentorbutton" type="button" class="btn btn-info" onclick="nextpage()">Mentor</button>
+                  <button id="menteebutton" type="button" class="btn btn-info" onclick="nextpage()">Mentee</button>
               </div>
-            </div>
+          </div>
+  </div>
+          <script>
+              function nextpage(){
+                location.href="menteePage1.html";
+              }
+          </script>
         </div>
+
 
 
 </body>

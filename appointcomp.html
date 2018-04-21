@@ -5,15 +5,33 @@
 <link rel="stylesheet" href="css/uikit.css" />
 <script src="js/uikit.min.js"></script>
 <script src="js/uikit-icons.min.js"></script>
-
 </head>
 <body>
-<style type="text/css">
+<style>
+h1{text-align:center}
+span {
+  content: "\26A0";
+}
 
-h1{ text-align:center;}
+table{ width:500px;
+       margin:auto;
+	   text-align:center;
+	   table-layout:fixed;
+}
+
+table,tr,th,td{ padding:10px;
+                color:white;
+				corder:1px solid #080808;
+				border-collapse:collapse;
+				font-size:18px;
+				font-family:Arial;
+				background:linear-gradient(top,#3c3c3c 0%,#222222 100%);
+				background:-webkit-linear-gradient(top,#3c3c3c 0%,#222222 100%);
+}
+
+td:hover{ background:orange; }
 
 
-div.box{text-align:center;}
 </style>
 
 <div class="uk-offcanvas-content">
@@ -62,22 +80,51 @@ div.box{text-align:center;}
 
 </div>
 
-<h1>Profile</h1>
-<br>
-<div class="box">
-<img src="ironman.png" alt="ironman" width="150" height="200" align="middle">
-</div>
-<p align="center"> 
-<b>Name</b>: Professor Lincoln Abraham</p>
-<p align="center">
-<b>E-mail</b>: lincolnsunway@edu.imail.my</p>
-<p align="center">
-<b>Phone Number</b>: 012-2346785</p>
-<p align="center">
-<b>Subject In Charge :</b>
-<ul align="center">
-<li><a href="appointcomp.html">Computer Mathematics</a></li>
-<li><a href="appointintro.html">Introduction To Statistics</a></li>
-</ul>
+<h1>Appointment Stream</h1>
 
-</body>
+<h3 align="center"><b>Computer Mathematics</b></h3>
+<h3 align="center"> Today's Timetable 22/04/2018 </h3>
+
+<table>
+<tr>
+   <th>No</th>
+   <th>MenteeUsername</th>
+   <th>Time</th>
+</tr>
+<tr>
+   <td>1</td>
+   <td>NyctoNille</td>
+   <td>9am - 10am</td>
+</tr>
+<tr>
+   <td>2</td>
+   <td>LeeMing</td>
+   <td>11am - 12pm</td>
+</tr>
+</table>
+
+<p align="center"><span>&#9888;</span>IMPORTANT NOTICE</p>
+<h3 align="center">Upcoming Slots (TBC)</h3>
+
+<table>
+<tr>
+   <th>No</th>
+   <th>MenteeUsername</th>
+   <th>Time</th>
+</tr>
+<tr>
+   <td>1</td>
+   <td>NyctoNille</td>
+   <td>9am - 10am</td>
+   < 
+</tr>
+<tr>
+   <td>2</td>
+   <td>LeeMing</td>
+   <td>11am - 12pm</td>
+</tr>
+</table>
+
+
+
+

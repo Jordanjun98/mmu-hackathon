@@ -3,6 +3,8 @@
 
 <!doctype html>
 <html lang="en" class="no-js">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -326,7 +328,7 @@
 
 		<div class="body">
 			<div class="event-info">
-				<form onsubmit="return false make_json(this):">
+				<form memthod="post">
 							ConsultID:<br>
 							<input type="number" name="ConsultID" value="1000">
 						</br>
@@ -343,21 +345,9 @@
 						  <input type="number" name="Code" value="">
 						  <input name="submit" type="submit" value="Submit">
 				</form>
-
-				<script>
-						function make_json(form){
-							var json={
-								"Name":form.Name.value
-							};
-							var html=JSON.stringify(json,0,4);
-							document.getElementId('output').innerHTML=html;
-							return false;
-						}
-				</script>
-
 			</div>
-			<div class="body-bg"></div>
-		</div>
+		 <div class="body-bg"></div>
+	 </div>
 
 		<a href="#0" class="close">Close</a>
 	</div>
@@ -369,6 +359,32 @@
 <script>
 	if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
 </script>
-<script src="js/main.js"></script> <!-- Resource jQuery -->
+<script src="js/main.js"></script>
+<pre id="result"></pre> <!-- Resource jQuery -->
+<script>
+	$.fn.serializeObject = function()
+	{
+			var o = {};
+			var a = this.serializeArray();
+			$.each(a, function() {
+					if (o[this.name] !== undefined) {
+							if (!o[this.name].push) {
+									o[this.name] = [o[this.name]];
+							}
+							o[this.name].push(this.value || '');
+					} else {
+							o[this.name] = this.value || '';
+					}
+			});
+			return o;
+	};
+
+	$(function() {
+			$('form').submit(function() {
+					$('#result').text(JSON.stringify($('form').serializeObject()));
+					return false;
+			});
+	});
+</script>
 </body>
 </html>

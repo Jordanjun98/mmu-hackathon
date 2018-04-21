@@ -1,0 +1,90 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+<title>Mentor Profile</title>
+<link rel="stylesheet" href="css/uikit.css" />
+<script src="js/uikit.min.js"></script>
+<script src="js/uikit-icons.min.js"></script>
+
+<head>
+	<title>Vanilla JS Calendar</title>
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="Chrissy Collins" name="author">
+	<meta content="A pure vanilla JS calendar by @chrisssycollins" name="description">
+	<link href="dist/vanillaCalendar.css" rel="stylesheet">
+	<style>
+		html {
+			box-sizing: border-box;
+			font-size: 10px;
+		}
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+			color: #333;
+			font-size: 1.6rem;
+			background-color: #FAFAFA;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		.logo {
+			margin: 1.6rem auto;
+			text-align: center;
+		}
+
+		a,
+		a:visited {
+			color: #0A9297;
+		}
+
+		footer {
+			text-align: center;
+			margin: 1.6rem 0;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		.container {
+			width: 96%;
+			margin: 1.6rem auto;
+			max-width: 42rem;
+			text-align: center;
+		}
+
+		.demo-picked {
+			font-size: 1.2rem;
+			text-align: center;
+		}
+
+		.demo-picked span {
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+<div class="uk-offcanvas-content">
+
+    <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-nav-primary">Feeds</button>
+
+    <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
+        <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+
+            <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+			    <li class="uk-active"><a href="calender.html">Calender</a></li>
+                <li class="uk-active"><a href="profilementor.html">Profile</a></li>
+                <li class="uk-parent">
+                    <li>Appointment Stream</li>
+                    <ul class="uk-nav-sub">
+                        <li><a href="appointcomp.html">Computer Mathematics</a></li>
+                        <li><a href="appointintro.html">Introduction to Statistics</a></li>
+                    </ul>
+                </li>
+                <li class="uk-nav-header">Header</li>
+                <li class="uk-nav-divider"></li>
+                <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span>Logout</a></li>
+            </ul>
+
+        </div>
+    </div>

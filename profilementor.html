@@ -1,0 +1,86 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+<title>Mentor Profile</title>
+</head>
+<body>
+<style type="text/css">
+
+h1{ text-align:center;}
+
+*{padding:0;margin:0;}
+body{ont-family: 'Caveat Brush', cursive;}
+a{text-decoration:none; color:#ffffff;}
+li{list-style-type:none;}
+nav{
+	 width:100%;
+	 text-align:center;
+	 border:1px solid #ff9933;
+}
+nav a{display:block;
+	 padding:15px 0;
+	 border-bottom:1px solid #ff9933;
+}
+nav a:hover{background-color:#ff0000;
+	 color:#ffffff;
+}
+.menu{ 
+	 width:240px;
+	 height:100%;
+	 font-size:1.5em;
+	 position:absolute;
+	 background-color:000000;
+	 left:-300px;
+	 transition:all .3s ease-in-out;
+}
+.menu-icon{
+	 padding:10px 20px;
+	 background-color:#000000;
+	 color:#ffffff;
+	 cursor:pointer;
+	 margin-top:4px;
+	 border-radius:5px;
+}
+#menuToggle{display:none;}
+
+#menuToggle:checked ~ .menu {position:absolute; left:0;}
+
+div.box{text-align:center;}
+</style>
+
+<input type="checkbox" id="menuToggle">
+<label for="menuToggle" class="menu-icon">&#9776 </label>
+
+
+<nav class="menu">
+	<ul>
+		<li><a href="Profile.html">Profile</a></li>
+		<li><a href=" ">Appointments Stream</a></li>
+	</ul>
+</nav>
+
+<h1>Profile</h1>
+<br>
+<div class="box">
+<img src="ironman.png" alt="ironman" width="150" height="200" align="middle">
+</div>
+<br>
+<p align="center"> 
+<b>Name</b>: Professor Lincoln Abraham</p>
+<br>
+<p align="center">
+<b>E-mail</b>: lincolnsunway@edu.imail.my</p>
+<br>
+<p align="center">
+<b>Phone Number</b>: 012-2346785</p>
+<br>
+<p align="center">
+<b>Subject In Charge :</b>
+<br><br>
+<ul align="center">
+<li>1.Computer Mathematics</li>
+<li>2. Introduction To Statistics</li>
+</ul>
+<br>
+
+</body>

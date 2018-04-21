@@ -328,7 +328,7 @@
 
 		<div class="body">
 			<div class="event-info">
-				<form memthod="post">
+				<form method="post" action="updatedatabase.php">
 							ConsultID:<br>
 							<input type="number" name="ConsultID" value="1000">
 						</br>
@@ -344,6 +344,11 @@
 						  <br>Subject code<br>
 						  <input type="number" name="Code" value="">
 						  <input name="submit" type="submit" value="Submit">
+							<input type="text" placeholder="something to store" id="inputString" />
+							<h1 onclick="clearStorage()">clear storage</h1>
+							<h1 onclick="saveStatusLocally()">store</h1>
+
+
 				</form>
 			</div>
 		 <div class="body-bg"></div>
@@ -433,5 +438,7 @@
 				}
 		}
 </script>
+<h1 onclick="readStatus()">print</h1>
+<div id="write"></div>
 </body>
 </html>

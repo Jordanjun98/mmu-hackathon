@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<head>
+<title>
+mentee
+</title>
+<link rel="stylesheet" href="css/uikit.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+form {
+    max-width: 500px;
+	max-height: 1000px;
+    margin: auto;
+    padding-top: 2px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+    border-radius: 8px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+	box-sizing: border-box;
+	background-color: #ffb533;
+	padding-top: 20px;
+	padding-left: 20px;
+	height: 
+	margin-top: 10%;
+	opacity: 0.92;
+	font-weight: bold;
+	top: 100px;
+	margin-top: 200px;}
+
+table{margin: auto;}
+
+html {
+background-color:#edeae5;
+}
+
+h2{text-align: Center; }
+.login{ padding-bottom: 20px;}
+
+.background {
+	z-index:-1;
+	height: 100%;
+	width: 1000px;
+	position: absolute;
+	display: block;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top:100px;
+	
+}
+
+
+p, ul, ol, dl, pre, address, fieldset, figure {
+    margin: 0 0 40px 0;}
+ button {
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: buttontext;
+    background-color: buttonface;
+    box-sizing: border-box;
+    padding: 2px 6px 3px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+}
+</style>
+</head>
+<body>
+<img class = "background" src = "img/studypic.jpg">
+<h2>Welcome!</h2>
+<form method="post" action="">
+    <table>
+	<h3 style="font-weight: bold; text-align:center;">Register</h3>
+	<tr>
+	<td><label class="login">ID:</label></td>
+	<td>
+	<input type="text" name = "id" required="required" placeholder="You need to enter numbers only."></td>
+	</tr>
+	<tr>
+	<td><label class="login">Name:</label></td>
+	<td>
+	<input type="text" required="required" name="Name"></td>
+	</tr>
+	<tr>
+	<td><label class="login">Password:</label></td>
+	<td>
+	<input type="text" required="required" name="Password"></td></tr>
+	</table>
+	<p uk-margin>
+		<button class="uk-button uk-button-secondary uk-button-small" style="float :right;"><input type="submit"/></button>
+	</p>
+</form>
+<h2>JSON</h2>
+<pre id="result">
+</pre>
+
+
+<script>
+	$.fn.serializeObject = function()
+	{
+	    var o = {};
+	    var a = this.serializeArray();
+	    $.each(a, function() {
+	        if (o[this.name] !== undefined) {
+	            if (!o[this.name].push) {
+	                o[this.name] = [o[this.name]];
+	            }
+	            o[this.name].push(this.value || '');
+	        } else {
+	            o[this.name] = this.value || '';
+	        }
+	    });
+	    return o;
+	};
+	
+	$(function() {
+	    $('form').submit(function() {
+	        $('#result').text(JSON.stringify($('form').serializeObject()));
+	        return false;
+	    });
+	});
+</script>
+</body>
+</html>

@@ -325,7 +325,37 @@
 		</header>
 
 		<div class="body">
-			<div class="event-info"></div>
+			<div class="event-info">
+				<form onsubmit="return false make_json(this):">
+							ConsultID:<br>
+							<input type="number" name="ConsultID" value="1000">
+						</br>
+						  Name:<br>
+						  <input type="text" name="Name" value="Mickey">
+						  <br>
+						  Contact:<br>
+						  <input type="text" name="Contact" value="0123456789">
+						  <br>Email<br>
+						  <input type="email" name="Email" value="example@gmail.com">
+						  <br>Time slot<br>
+						  <input type="number" name="Time" value="">
+						  <br>Subject code<br>
+						  <input type="number" name="Code" value="">
+						  <input name="submit" type="submit" value="Submit">
+				</form>
+
+				<script>
+						function make_json(form){
+							var json={
+								"Name":form.Name.value
+							};
+							var html=JSON.stringify(json,0,4);
+							document.getElementId('output').innerHTML=html;
+							return false;
+						}
+				</script>
+
+			</div>
 			<div class="body-bg"></div>
 		</div>
 

@@ -107,6 +107,7 @@ p, ul, ol, dl, pre, address, fieldset, figure {
 
 <script>
 		//array to store values
+		var allUser = [];
 		var user = {};
 		//input field text
 		var id = document.getElementById('id');
@@ -136,12 +137,13 @@ p, ul, ol, dl, pre, address, fieldset, figure {
 		        user.name = nameToSave;
 		        user.pass = passToSave;
 		        var userJSON = JSON.stringify(user);
+		        allUser.push(userJSON);
 		        //clear the input field for visual 
 		        id.value = "";
 		        names.value = "";
 		        pass.value = "";
 		        //print that value into the local storage named database and joing by a non-breaking space
-		        window.localStorage.setItem("database", userJSON);
+		        window.localStorage.setItem("database", allUser);
 		        //confirm write
 		        document.getElementById('write').innerHTML = "data stored.";
 		        //clear message after 1s

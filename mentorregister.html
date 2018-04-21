@@ -76,51 +76,95 @@ p, ul, ol, dl, pre, address, fieldset, figure {
 	<tr>
 	<td><label class="login">ID:</label></td>
 	<td>
-	<input type="text" name = "id" required="required" placeholder="You need to enter numbers only."></td>
+	<input type="text" name = "id" id ="id" required="required" placeholder="You need to enter numbers only."></td>
 	</tr>
 	<tr>
 	<td><label class="login">Name:</label></td>
 	<td>
-	<input type="text" required="required" name="Name"></td>
+	<input type="text" id="Name" required="required" name="Name"></td>
 	</tr>
 	<tr>
 	<td><label class="login">Password:</label></td>
 	<td>
-	<input type="text" required="required" name="Password"></td></tr>
+	<input type="text" id="Pass" required="required" name="Password"></td></tr>
 	</table>
 	<p uk-margin>
-		<button class="uk-button uk-button-secondary uk-button-small" style="float :right;"><input type="submit"/></button>
+		<button class="uk-button uk-button-secondary uk-button-small" style="float :right;" onclick="getForm()">Submit</button>
+		
 	</p>
 </form>
+
 <h2>JSON</h2>
-<pre id="result">
-</pre>
+<p id="demo">
+</p>
+<input type="text" placeholder="something to store" id="inputString" />
+<h1 onclick="clearStorage()">clear storage</h1>
+<h1 onclick="saveStatusLocally()">store</h1>
+<h1 onclick="readStatus()">print</h1>
+<div id="write"></div>
+
 
 
 <script>
-	$.fn.serializeObject = function()
-	{
-	    var o = {};
-	    var a = this.serializeArray();
-	    $.each(a, function() {
-	        if (o[this.name] !== undefined) {
-	            if (!o[this.name].push) {
-	                o[this.name] = [o[this.name]];
-	            }
-	            o[this.name].push(this.value || '');
-	        } else {
-	            o[this.name] = this.value || '';
-	        }
-	    });
-	    return o;
-	};
-	
-	$(function() {
-	    $('form').submit(function() {
-	        $('#result').text(JSON.stringify($('form').serializeObject()));
-	        return false;
-	    });
-	});
+		//array to store values
+		var allUser = [];
+		var user = {};
+		//input field text
+		var id = document.getElementById('id');
+		var names = document.getElementById('Name');
+		var pass = document.getElementById('Pass');
+		
+		//clear the storage
+		function clearStorage() {
+		    //clear the storage
+		    stores = Array();
+		    localStorage.clear("database");
+		    //visually cleared
+		    document.getElementById('write').innerHTML = "storage cleared.";
+		}
+		
+		// save the string
+		function saveStatusLocally() {
+		    //grab the value of the text box
+		    var idToSave = id.value;
+		    var nameToSave = names.value;
+		    var passToSave = pass.value;
+		    if ((idToSave == null) || (idToSave == "")) {
+		        document.getElementById('write').innerHTML = "nothing to store.";
+		    } else {
+		        //push that value to the array
+		        user.id = idToSave;
+		        user.name = nameToSave;
+		        user.pass = passToSave;
+		        var userJSON = JSON.stringify(user);
+		        allUser.push(userJSON);
+		        //clear the input field for visual 
+		        id.value = "";
+		        names.value = "";
+		        pass.value = "";
+		        //print that value into the local storage named database and joing by a non-breaking space
+		        window.localStorage.setItem("database", allUser);
+		        //confirm write
+		        document.getElementById('write').innerHTML = "data stored.";
+		        //clear message after 1s
+		        setTimeout(function() {
+		            document.getElementById('write').innerHTML = "";
+		        }, 1000);
+		
+		    }
+		}
+		
+		// read the string
+		function readStatus() {
+		    //print the value of the local storage "database" key
+		    if (window.localStorage.getItem("database") == null) {
+		        document.getElementById('write').innerHTML = "nothing stored.";
+		    } else {
+		        document.getElementById('write').innerHTML = window.localStorage.getItem("database");
+		    }
+		}
+		
+		
 </script>
 </body>
 </html>

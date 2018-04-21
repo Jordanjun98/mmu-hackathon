@@ -1,57 +1,43 @@
-<head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
-</head>
-<h2>Form</h2>
-<form action="" method="post">
-First Name:<input type="text" name="Fname" maxlength="12" size="12"/> <br/>
-Last Name:<input type="text" name="Lname" maxlength="36" size="12"/> <br/>
-Gender:<br/>
-Male:<input type="radio" name="gender" value="Male"/><br/>
-Female:<input type="radio" name="gender" value="Female"/><br/>
-Favorite Food:<br/>
-Steak:<input type="checkbox" name="food[]" value="Steak"/><br/>
-Pizza:<input type="checkbox" name="food[]" value="Pizza"/><br/>
-Chicken:<input type="checkbox" name="food[]" value="Chicken"/><br/>
-<textarea wrap="physical" cols="20" name="quote" rows="5">Enter your favorite quote!</textarea><br/>
-Select a Level of Education:<br/>
-<select name="education">
-<option value="Jr.High">Jr.High</option>
-<option value="HighSchool">HighSchool</option>
-<option value="College">College</option></select><br/>
-Select your favorite time of day:<br/>
-<select size="3" name="TofD">
-<option value="Morning">Morning</option>
-<option value="Day">Day</option>
-<option value="Night">Night</option></select>
-<p><input type="submit" /></p>
-</form>
-<h2>JSON</h2>
-<pre id="result">
-</pre>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div class="container">
+	<div class="hero-unit">
+      	<h1>JSON SAVING TO LS - ADDING ITEMS</h1>
+        
+        <ul id="bxs" class="tabs"> </ul>
+          </div>
+          </div>
 
-<script>
-	$.fn.serializeObject = function()
-	{
-	    var o = {};
-	    var a = this.serializeArray();
-	    $.each(a, function() {
-	        if (o[this.name] !== undefined) {
-	            if (!o[this.name].push) {
-	                o[this.name] = [o[this.name]];
-	            }
-	            o[this.name].push(this.value || '');
-	        } else {
-	            o[this.name] = this.value || '';
-	        }
-	    });
-	    return o;
-	};
-	
-	$(function() {
-	    $('form').submit(function() {
-	        $('#result').text(JSON.stringify($('form').serializeObject()));
-	        return false;
-	    });
+<div class="col-lg-3">
+    <div class="well">
+      <div class="form-group row">
+  <label for="id" class="col-lg-2 control-label">Name</label><input type="text" id="id" class="form-control"/>  <label for="cost" class="col-lg-2 control-label">Price</label><input type="text" id="cost" class="form-control"/><button class="btn btn-danger btn-lg">save to JSON</button>
+        </div>
+          </div>
+      </div>
+
+<script type="text/javascript">
+	$("button").click(function() {
+	    var productname = $("#id").val();
+	    var worth = $("#cost").val();;
+	    // update the result array
+	    var result = JSON.parse(localStorage.getItem("prodList"));
+	    if(result == null)
+	        result = [];
+	    
+	    result.push({id: productname, cost: worth});
+	    // save the new result array
+	    localStorage.setItem("prodList", JSON.stringify(result));
+	    
+	    // append the new li
+	    $("#bxs").append($("<li></li>").attr("id", "item-"+productname).html(worth));
 	});
+	
+	// on init fill the ul
+	var result = JSON.parse(localStorage.getItem("prodList"));
+	if(result != null) {
+	    for(var i=0;i<result.length;i++) {
+	        var item = result[i];
+	        $("#bxs").append($("<li></li>").attr("id", "item-"+item.id).html(item.cost));
+	    }
+	}
 </script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+<title>
+mentee
+</title>
+<link rel="stylesheet" href="css/uikit.css"/>
+<style>
+</style>
+<script type="text/javascript">
+$(document).ready(function () {
+    function init() {
+        if (localStorage["name"]) {
+            $('#name').val(localStorage["name"]);
+        }
+        if (localStorage["email"]) {
+            $('#email').val(localStorage["email"]);
+        }
+        if (localStorage["message"]) {
+            $('#message').val(localStorage["message"]);
+        }
+    }
+    init();
+});
+
+$('.stored').keyup(function () {
+    localStorage[$(this).attr('name')] = $(this).val();
+});
+
+$('#localStorageTest').submit(function() {
+    localStorage.clear();
+});
+
+</script>
+</head>
+<body>
+<form id="localStorageTest" method="post" action="">
+    <label>Name:</label>
+    <input type="text" name="name" id="name" class="stored" value="" />
+
+    <label>Email:</label>
+    <input type="email" name="email" id="email" class="stored" value="" />
+
+    <label>Message:</label>
+    <textarea name="message" id="message" class="stored"></textarea>
+
+    <input type="submit" class="demo-button" value="Submit" />
+
+<script>
+function retriece(){
+var myData = localStorage.getElementById('name');
+}
+localStorage.setItem("name", JSON.stringify(name));
+
+</script>
+</form>
+</body>
+</html>

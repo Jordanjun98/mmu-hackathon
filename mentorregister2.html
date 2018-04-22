@@ -20,7 +20,7 @@ form {
 	background-color: #ffb533;
 	padding-top: 20px;
 	padding-left: 20px;
-	height:
+	height: 
 	margin-top: 10%;
 	opacity: 0.92;
 	font-weight: bold;
@@ -46,7 +46,7 @@ h2{text-align: Center; }
 	left: 0;
 	right: 0;
 	top:100px;
-
+	
 }
 
 
@@ -90,18 +90,18 @@ p, ul, ol, dl, pre, address, fieldset, figure {
 	</table>
 	<p uk-margin>
 		<button class="uk-button uk-button-secondary uk-button-small" style="float :right;" onclick="getForm()">Submit</button>
-
+		
 	</p>
 </form>
 
 <h2>JSON</h2>
 <p id="demo">
 </p>
-<!--<input type="text" placeholder="something to store" id="inputString" />
+<input type="text" placeholder="something to store" id="inputString" />
 <h1 onclick="clearStorage()">clear storage</h1>
 <h1 onclick="saveStatusLocally()">store</h1>
 <h1 onclick="readStatus()">print</h1>
-<div id="write"></div>-->
+<div id="write"></div>
 
 
 
@@ -113,7 +113,7 @@ p, ul, ol, dl, pre, address, fieldset, figure {
 		var id = document.getElementById('id');
 		var names = document.getElementById('Name');
 		var pass = document.getElementById('Pass');
-
+		
 		//clear the storage
 		function clearStorage() {
 		    //clear the storage
@@ -122,7 +122,7 @@ p, ul, ol, dl, pre, address, fieldset, figure {
 		    //visually cleared
 		    document.getElementById('write').innerHTML = "storage cleared.";
 		}
-
+		
 		// save the string
 		function saveStatusLocally() {
 		    //grab the value of the text box
@@ -138,7 +138,7 @@ p, ul, ol, dl, pre, address, fieldset, figure {
 		        user.pass = passToSave;
 		        var userJSON = JSON.stringify(user);
 		        allUser.push(userJSON);
-		        //clear the input field for visual
+		        //clear the input field for visual 
 		        id.value = "";
 		        names.value = "";
 		        pass.value = "";
@@ -150,10 +150,10 @@ p, ul, ol, dl, pre, address, fieldset, figure {
 		        setTimeout(function() {
 		            document.getElementById('write').innerHTML = "";
 		        }, 1000);
-
+		
 		    }
 		}
-
+		
 		// read the string
 		function readStatus() {
 		    //print the value of the local storage "database" key
@@ -163,8 +163,8 @@ p, ul, ol, dl, pre, address, fieldset, figure {
 		        document.getElementById('write').innerHTML = window.localStorage.getItem("database");
 		    }
 		}
-
-
+		
+		
 </script>
 </body>
 </html>

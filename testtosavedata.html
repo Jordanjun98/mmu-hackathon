@@ -1,0 +1,69 @@
+<html>
+<div class="body">
+  <div class="event-info">
+    <form id="test-form" name="localStorage">
+          ConsultID:<br>
+          <input type="number" name="ConsultID" id="ConsultID" value="1000">
+        </br>
+          Name:<br>
+          <input type="text" name="Name" id="Name" value="Mickey">
+          <br>
+          Contact:<br>
+          <input type="text" name="Contact" id="Contact" value="0123456789">
+          <br>Email<br>
+          <input type="email" name="Email" id="Email" value="example@gmail.com">
+          <br>Time slot<br>
+          <input type="number" name="Time" id="Time" value="">
+          <br>Subject code<br>
+          <input type="number" name="Code" id="Code" value="">
+          <button name="submit" type="submit" value="Submit" onclick="set()" ></button>
+    </form>
+  </div>
+  <pre id="result"></pre>
+
+  <script>
+  /*var set={name:'Name'}
+  localStorage.setItem("look",set);
+  console.log(localStorage.getItem("name",set));
+
+  $('#localStorage').submit(function(e))*/
+var stores = Array();
+var input = document.getElementById('ConsultID')
+  function savestorage(){
+    var consultid=document.getElementById("ConsultID");
+    var name=document.getElementById("Name");
+  }
+
+  function savestatuslocally(){
+    var stringtosave = inputField.value;
+    if((stringtosave == null) || (stringtosave == "")){
+      document.getElementById('write').innerHTML = "nothing to store.";
+    }else{
+      stores.push(stringtosave);
+      windows.localStorage.setItem("database",stores.join(" "));
+      document.getElementById('write').innerHTML = "data stored.";
+
+    }
+  }
+
+//Read the string
+  function readStatus() {
+      //print the value of the local storage "database" key
+      if (window.localStorage.getItem("database") == null) {
+          document.getElementById('write').innerHTML = "nothing stored.";
+      } else {
+          document.getElementById('write').innerHTML = window.localStorage.getItem("database");
+      }
+  }
+
+
+  </script>
+
+
+
+
+
+
+
+
+</html>

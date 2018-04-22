@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <head>
 <title>
-mentee
+Mentor Login
 </title>
+
+<script src="js/uikit.min.js"></script>
+<script src="js/uikit-icons.min.js"></script>
 <link rel="stylesheet" href="css/uikit.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
@@ -68,6 +71,50 @@ p, ul, ol, dl, pre, address, fieldset, figure {
 </style>
 </head>
 <body>
+<div class="uk-offcanvas-content">
+
+    <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-nav-primary">Menu</button>
+
+    <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
+        <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+
+            <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+			    <li class="uk-active"><a href="firstpage.html">Home</a></li>
+                <li class="uk-parent">
+                    <li></li>
+                     <li class="uk-nav-header"></li>
+                     <li class="uk-nav-divider"></li>
+                    <ul class="uk-nav-sub">
+                       
+                    </ul>
+                </li>
+                
+                
+            </ul>
+
+        </div>
+    </div>
+
+    <div id="offcanvas-nav" uk-offcanvas="overlay: true">
+        <div class="uk-offcanvas-bar">
+
+            <ul class="uk-nav uk-nav-default">
+                <li class="uk-active"><a href="#">Active</a></li>
+                <li class="uk-parent">
+                    <a href="#">Parent</a>
+                    <ul class="uk-nav-sub">
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                    </ul>
+                </li>
+                <li class="uk-nav-divider"></li>
+                <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span>Logout</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
 <img class = "background" src = "img/studypic.jpg">
 <h2>Welcome!</h2>
 <form method="post" action="profilementor.html">
@@ -90,7 +137,7 @@ p, ul, ol, dl, pre, address, fieldset, figure {
 	</table>
 	<p uk-margin>
 		
-		<button class="uk-button uk-button-secondary uk-button-small" style="display: block; margin: 0;" ><a href="profilementor.html" style="text-decoration: none; color: white;">Submit</a></button>
+		<button class="uk-button uk-button-secondary uk-button-small" style="display: block; margin: 0; float: right;" ><a href="profilementor.html" style="text-decoration: none; color: white;">Submit</a></button>
 		
 	</p>
 </form><!--

@@ -25,17 +25,31 @@
         <div class="uk-card uk-card-body">
             <div class="row">
               <div class="uk-position-center uk-overlay uk-overlay-default">
-                  <button id="mentorbutton" type="button" class="btn btn-info" onclick="nextpage()">Mentor</button>
+                  <button id="mentorbutton" type="button" class="btn btn-info" onclick="mentorpage()">Mentor</button>
                   <button id="menteebutton" type="button" class="btn btn-info" onclick="nextpage()">Mentee</button>
               </div>
+              <style>
+                    .btn-info {
+                                color: #fff;
+                                width: 200px;
+                                background-color: #5bc0de;
+                                border-color: #46b8da;
+                              }
+              </style>
           </div>
-  </div>
+        </div>
           <script>
               function nextpage(){
                 location.href="menteePage1.html";
               }
           </script>
-        </div>
+
+          <script>
+              function mentorpage(){
+                location.href="mentorlogin.html";
+              }
+          </script>
+    </div>
 
 
 

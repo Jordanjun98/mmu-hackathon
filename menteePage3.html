@@ -3,6 +3,8 @@
 
 <!doctype html>
 <html lang="en" class="no-js">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -326,26 +328,36 @@
 
 		<div class="body">
 			<div class="event-info">
-				<form memthod="post">
-											ConsultID:<br>
-											<input type="number" name="ConsultID" value="1000">
-										</br>
-										  Name:<br>
-										  <input type="text" name="Name" value="Mickey">
-										  <br>
-										  Contact:<br>
-										  <input type="text" name="Contact" value="0123456789">
-										  <br>Email<br>
-										  <input type="email" name="Email" value="example@gmail.com">
-										  <br>Time slot<br>
-										  <input type="number" name="Time" value="">
-										  <br>Subject code<br>
-										  <input type="number" name="Code" value="">
-										  <button href="interaction.html" name="submit" type="submit" value="Submit"/>
-								</form>
+				<form method="post">
+							ConsultID:<br>
+							<input type="number" name="ConsultID" value="1000">
+						</br>
+						  Name:<br>
+						  <input type="text" name="Name" value="Mickey">
+						  <br>
+						  Contact:<br>
+						  <input type="text" name="Contact" value="0123456789">
+						  <br>Email<br>
+						  <input type="email" name="Email" value="example@gmail.com">
+						  <br>Time slot<br>
+						  <input type="number" name="Time" value="">
+						  <br>Subject code<br>
+						  <input type="number" name="Code" value="">
+						  <br>
+						  <button><a style="color: black;" href="interaction.html">Submit</a></button>
+							<script>
+									function toNextPage(){
+										location.href="interaction.html";
+									}
+							</script>
+
+				</form>
 			</div>
-			<div class="body-bg"></div>
-		</div>
+		 <div class="body-bg"></div>
+
+
+
+	 </div>
 
 		<a href="#0" class="close">Close</a>
 	</div>
@@ -357,6 +369,81 @@
 <script>
 	if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
 </script>
-<script src="js/main.js"></script> <!-- Resource jQuery -->
+<script src="js/main.js"></script>
+<pre id="result"></pre> <!-- Resource jQuery -->
+<script>
+		//array to store values
+		var allUser = [];
+		var user = {};
+		//input field text
+		var id = document.getElementById('id');
+		var names = document.getElementById('Name');
+		var contact = document.getElementById('Contact');
+		var email = document.getElementById('Email');
+		var subject-code = document.getElementById('Subject-code');
+
+		//clear the storage
+		function clearStorage() {
+				//clear the storage
+				stores = Array();
+				localStorage.clear("database");
+				//visually cleared
+				document.getElementById('write').innerHTML = "storage cleared.";
+		}
+
+		// save the string
+		function saveStatusLocally() {
+				//grab the value of the text box
+				var idToSave = id.value;
+				var nameToSave = names.value;
+				var passToSave = pass.value;
+				var contactToSave = contact.value;
+				var emailToSave = email.value;
+				var subjectToSave = subject.value;
+				if ((idToSave == null) || (idToSave == "")) {
+						document.getElementById('write').innerHTML = "nothing to store.";
+				} else {
+						//push that value to the array
+						user.id = idToSave;
+						user.name = nameToSave;
+						user.pass = passToSave;
+						user.contact= contactToSave;
+						user.email=emailToSave;
+						user.subject=subjectToSave;
+
+						var userJSON = JSON.stringify(user);
+						allUser.push(userJSON);
+						//clear the input field for visual
+						id.value = "";
+						names.value = "";
+						pass.value = "";
+						contact.value="";
+						email.value="";
+						subject.value="";
+
+						//print that value into the local storage named database and joing by a non-breaking space
+						window.localStorage.setItem("database", allUser);
+						//confirm write
+						document.getElementById('write').innerHTML = "data stored.";
+						//clear message after 1s
+						setTimeout(function() {
+								document.getElementById('write').innerHTML = "";
+						}, 1000);
+
+				}
+		}
+
+		// read the string
+		function readStatus() {
+				//print the value of the local storage "database" key
+				if (window.localStorage.getItem("database") == null) {
+						document.getElementById('write').innerHTML = "nothing stored.";
+				} else {
+						document.getElementById('write').innerHTML = window.localStorage.getItem("database");
+				}
+		}
+</script>
+<h1 onclick="readStatus()"></h1>
+<div id="write"></div>
 </body>
 </html>
